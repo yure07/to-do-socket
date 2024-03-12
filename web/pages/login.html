@@ -20,13 +20,32 @@
     <article class="form-main-container">
       <section class="form-container">
         <h1 class="text-login">Login</h1>
-        <input type="text" placeholder="Email Address">
-        <input type="text" placeholder="Password">
-        <button class="btn-login">Login</button>
+        <input type="text" placeholder="Email Address" id="input-email">
+        <input type="password" placeholder="Password" id="input-password">
+        <button class="btn-login" id="btn-login">Login</button>
         <p class="text-no-account">Do not have an account yet?</p>
         <a href="#" class="text-no-account">Sign up</a>
       </section>
     </article>
+    <section class="modal-login-success" id="modal-login-success">
+      <div class="container-left">
+        <img src="../assets/vetor-modal-login.png" alt="login-vetor" class="login-check-vetor"/>
+        <p>Login successfully</p>
+      </div>
+      <div class="container-right">
+        <button class="btn-redirect-modal-login">redirecting...</button>
+        <img src="../assets//icon-close.png" alt="close-modal-icon" class="close-modal-login">
+      </div>
+    </section>
+    <section class="modal-login-error" id="modal-login-error">
+      <img src="../assets/vetor-modal-login-error.png" alt="login-vetor-error">
+      <div class="container-text-modal-error">
+        <h4>Failed to login</h4>
+        <p>An error occurred, check if the password and/or email are correct</p>
+      </div>
+      <button class="btn-close-modal-error">Close</button>
+    </section>
   </main>
 </body>
+<script src="../js/login.js"></script>
 </html>
