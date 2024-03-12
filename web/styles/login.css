@@ -10,15 +10,36 @@
 main.main-container-login{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--primary-color);
   min-height: 100vh;
 }
 
 article.aside-presentation{
-  width: 50px;
-  height: 50px;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+
+.aside-presentation > .clock-img{
+  width: 53px;
+  margin: 16px;
+}
+
+.aside-presentation > .text-todo-presentation{
+  font-family: 'Telex';
+  font-size: 24px;
+  font-weight: 400;
+  margin-left: 16px;
+  color: var(--light-color);
+}
+
+.aside-presentation > .tasks-img{
+  width: 480px;
+  height: 500px;
+  margin-top: auto;
+  margin-left: auto;
+  transform: translateX(128px);
 }
 
 article.form-main-container{
@@ -26,7 +47,7 @@ article.form-main-container{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 870px;
+  width: 100vw;
   height: 100vh;
   font-family: "Poppins";
   border-top-left-radius: 45px;
