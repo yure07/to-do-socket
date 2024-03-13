@@ -1,0 +1,98 @@
+@import url(../styles/fonts.css);
+@import url(../styles/variables.css);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main.container-page-lists{
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar-container{
+  display: flex;
+  flex-direction: row;
+  width: 230px;
+  height: 100vh;
+  border: 1px solid #808080;
+}
+
+.sidebar-container > section.menu-sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 53px;
+  padding: 6px 0;
+  border: 1px solid #808080;
+}
+
+.menu-sidebar > div.container-top-menu-sidebar{
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 30px;
+}
+
+.menu-sidebar > img, .container-top-menu-sidebar > img{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.menu-sidebar > .list-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container > div.header-list-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  width: calc(230px - 53px);
+  border-bottom: 1px solid #808080;
+}
+
+div.header-list-container > h1{
+  font-size: 32px;
+  font-family: 'PT Sans';
+  color: #808080;
+}
+
+div.header-list-container > button{
+  width: 35px;
+  height: 35px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 32px;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+.container-tasks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 16px;
+  width: 100%;
+}
+
+.container-tasks > img{
+  width: 703px;
+  height: 574px;
+}
+
+.container-tasks > p{
+  font-family: 'Poppins';
+  font-size: 36px;
+  text-decoration: underline;
+  color: #3A3A3A;
+}

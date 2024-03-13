@@ -17,6 +17,7 @@ btn_login.addEventListener('click', () => {
     modal_success.style.display = 'flex'
     setTimeout(() => {
       modal_success.style.display = 'none'
+      window.location.href = '/web/pages/list.html'
     }, 3000)
   }
 })
