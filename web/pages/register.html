@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Register</title>
+  <link rel="stylesheet" href="../styles/login.css">
+  <link rel="stylesheet" href="../styles/register.css">
+</head>
+<body>
+  <main class="main-container-login">
+    <article class="aside-presentation">
+      <img src="../assets/clock-image.png" alt="clock-login-image" class="clock-img">
+      <section class="text-todo-presentation">
+        <p>Everything you </p>
+        <p>need to do in one</p>
+        <p>place.</p>
+      </section>
+      <img src="../assets/tasks-image.png" alt="tasks-login-image" class="tasks-img">
+    </article>
+    <article class="form-main-container">
+      <section class="form-container">
+        <div class="text-create-account">
+          <p class="text-register">Create</p>
+          <p class="text-register">Account</p>
+        </div>
+        <input type="text" placeholder="Full Name" id="input-full-name">
+        <input type="text" placeholder="Email Address" id="input-email">
+        <input type="password" placeholder="Password" id="input-password">
+        <button class="btn-login" id="btn-register">Create Account</button>
+        <p class="text-no-account">Already have an account?</p>
+        <a href="/web/pages/login.html" class="text-no-account" id="text-no-account">Log in</a>
+      </section>
+    </article>
+
+    <!-- modal success -->
+    <section class="modal-register-success" id="modal-register-success">
+      <div class="container-left">
+        <img src="../assets/vetor-modal-login.png" alt="login-vetor" class="register-check-vetor"/>
+        <p>Registration completed</p>
+      </div>
+      <button class="btn-redirect-modal-register">redirecting...</button>
+    </section>
+
+    <!-- modal error email -->
+    <section class="modal-register-error-email modal-error" id="modal-register-error-email">
+      <img src="../assets/vetor-modal-login-error.png" alt="register-vetor-error" class="vetor-error-register">
+      <div class="container-text-modal-error-email">
+        <h4>Failed to register</h4>
+        <p>Enter a valid email</p>
+      </div>
+      <button class="btn-close-modal-error">Close</button>
+    </section>
+
+    <!-- modal error password -->
+    <section class="modal-register-error-password modal-error" id="modal-register-error-password">
+      <img src="../assets/vetor-modal-login-error.png" alt="register-vetor-error" class="vetor-error-register">
+      <div class="container-text-modal-error">
+        <h4>Failed to register</h4>
+        <p>Your password must have at least 8 characters, letters and numbers</p>
+      </div>
+      <button class="btn-close-modal-error">Close</button>
+    </section>
+
+    <!-- modal error user already exists -->
+    <section class="modal-register-error-user modal-error" id="modal-register-error-user">
+      <img src="../assets/vetor-modal-login-error.png" alt="register-vetor-error" class="vetor-error-register">
+      <div class="container-text-modal-error-user">
+        <h4>Failed to register</h4>
+        <p>User already exists</p>
+      </div>
+      <button class="btn-close-modal-error" id="btn-close-modal-user-exists">Login</button>
+    </section>
+
+  </main>
+</body>
+<script src="../js/register.js"></script>
+</html>
+</html>
