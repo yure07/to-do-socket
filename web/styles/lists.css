@@ -76,6 +76,28 @@ div.header-list-container > button{
   cursor: pointer;
 }
 
+.list-container > .count-lists{
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  height: 60px;
+  padding: 12px;
+  background-color: #8080804D;
+  border-right: 3px solid #5AC7AA;
+  font-family: 'Inter';
+}
+
+.count-lists > p{
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.count-lists > span{
+  font-weight: 400;
+  font-size: 8px;
+  color: #5D6C87;
+}
+
 .container-tasks{
   display: none;
   flex-direction: column;
@@ -169,4 +191,174 @@ section.modal-add-list{
   color: var(--light-color);
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+article.data-tasks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 28px 0;
+}
+
+.data-tasks > section.header-list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: center;
+  width: 1100px;
+}
+
+.header-list > h1{
+  font-family: 'Poppins';
+  font-size: 21px;
+}
+
+.header-list > div.actions-header-list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.actions-header-list > button.btn-delete-list{
+  margin-right: 12px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.actions-header-list > button.btn-list{
+  width: 150px;
+  height: 40px;
+  font-size: 12px;
+  font-family: 'Poppins';
+  font-weight: 700;
+  border: 0;
+  border-radius: 6px;
+  margin-left: 12px;
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.data-tasks > section.labels-tasks{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  width: 1100px;
+  margin-top: 40px;
+}
+
+.labels-tasks > div.progress-label-task{
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 12px 8px;
+  border-radius: 5px;
+  font-family: 'Poppins';
+  font-size: 13px;
+  background-color: #EDEDED;
+}
+
+.to-do{
+  border-bottom: 6px solid black;
+}
+
+.doing{
+  border-bottom: 6px solid #EFEBA9;
+}
+
+.done{
+  border-bottom: 6px solid #5AC7AA;
+}
+
+.progress-label-task > div.container-tasks-list{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 280px;
+  height: 100%;
+  margin-left: -8px;
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 1.5px solid #EDEDED;
+  border-right: 1.5px solid #EDEDED;
+  border-top: 1.5px solid #EDEDED;
+  background-color: var(--light-color);
+}
+
+div.container-tasks-list > div.task{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 240px;
+  height: 75px;
+  padding: 8px 12px;
+  border-width: 3px;
+  border-style: dashed;
+  border-radius: 5px;
+  border-spacing: 16px;
+  background-color: #F66C0E0F;
+}
+
+div.task > div.container-top-task{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.container-top-task > div.title-task{
+  display: flex;
+  flex-direction: row;
+}
+
+div.title-task > img{
+  width: 13px;
+  height: 13px;
+  margin-right: 6px;
+}
+
+div.title-task > p{
+  align-self: flex-end;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+div.container-top-task > select.select-current{
+  width: 75px;
+  height: 23px;
+  border-radius: 3px;
+  border: 1px solid #CED2D9;
+  font-family: 'Poppins';
+  text-align: end;
+  background-color: transparent;
+}
+
+div.container-top-task > img.rocket-icon{
+  transform: translateX(30px);
+}
+
+div.task > div.container-bottom-task{
+  display: flex;
+  flex-direction: row;
+}
+
+div.container-bottom-task > p{
+  font-size: 7px;
+  width: 50%;
+}
+
+div.container-bottom-task > div.member-task{
+  margin-left: 38px;
+}
+
+div.task-doing{
+  border-color: #EFEBA9;
+}
+
+div.task-done{
+  border-color: #5AC7AA;
 }
