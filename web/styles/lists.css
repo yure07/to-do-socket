@@ -120,7 +120,7 @@ main.container-page-lists{
   cursor: pointer;
 }
 
-section.modal-add-list, section.modal-add-task{
+section.modal-add-list, section.modal-add-task, section.modal-invite-people{
   display: none;
   flex-direction: column;
   width: 436px;
@@ -141,17 +141,26 @@ section.modal-add-task{
   justify-content: inherit;
   padding: 24px;
   left: 67%;
-  top: 12%;
+  top: 11%;
 }
 
-.modal-add-list > header.header-modal-add-list, header.header-modal-add-task{
+section.modal-invite-people{
+  width: 330px;
+  height: 260px;
+  padding: 16px;
+  justify-content: inherit;
+  left: 72%;
+  top: 11%;
+}
+
+.modal-add-list > header.header-modal-add-list, header.header-modal-add-task, header.header-modal-invite-people{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.header-modal-add-list, .header-modal-add-task > p{
+.header-modal-add-list, .header-modal-add-task, .header-modal-invite-people > p{
   color: #000;
   font-size: 32px;
   font-family: 'Poppins';
@@ -163,7 +172,11 @@ section.modal-add-task{
   font-size: 20px;
 }
 
-.header-modal-add-list > button, .header-modal-add-task > button{
+.header-modal-invite-people > p{
+  font-size: 19px;
+}
+
+.header-modal-add-list > button, .header-modal-add-task > button, .header-modal-invite-people > button{
   width: 28px;
   height: 28px;
   border: 0;
@@ -172,7 +185,7 @@ section.modal-add-task{
   margin-top: -10px;
 }
 
-.header-modal-add-task > button, .icon-close-modal-add-task{
+.header-modal-add-task > button, .icon-close-modal-add-task, .icon-close-modal-invite-people{
   width: 17px;
   height: 17px;
 }
@@ -190,7 +203,7 @@ section.modal-add-task{
   font-family: 'Poppins';
 }
 
-.modal-add-task > .container-inputs > label{
+.modal-add-task > .container-inputs > label, .modal-invite-people > .container-inputs > label{
   font-size: 15px;
 }
 
@@ -211,6 +224,14 @@ section.modal-add-task{
   font-size: 12px;
 }
 
+.modal-invite-people > .container-inputs > input{
+  width: 290px;
+  color: #000;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 16px;
+}
+
 .modal-add-task > .container-inputs > select{
   width: 290px;
   margin-top: 0;
@@ -219,7 +240,7 @@ section.modal-add-task{
   border-bottom: 1px solid #007AFF;
 }
 
-.modal-add-list > button, .modal-add-task > button{
+.modal-add-list > button, .modal-add-task > button, .modal-invite-people > button{
   width: 120px;
   height: 48px;
   border: 0;
@@ -232,7 +253,7 @@ section.modal-add-task{
   cursor: pointer;
 }
 
-.modal-add-task > button.btn-add-task{
+.modal-add-task > button.btn-add-task, .modal-invite-people > button.btn-add-new-people{
   width: 74px;
   height: 30px;
   font-size: 10px;

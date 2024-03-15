@@ -35,7 +35,7 @@
             <img src="../assets/delete-button-list.png" alt="delete-button">
           </button>
           <button class="btn-add-to-do btn-list" id="btn-add-to-do">+ Add Todo</button>
-          <button class="btn-invite-people btn-list">+ Invite People</button>
+          <button class="btn-invite-people btn-list" id="btn-invite-people-outside">+ Invite People</button>
         </div>
       </section>
       <section class="labels-tasks">
@@ -64,144 +64,12 @@
                 </div>
               </div>
             </div>
-            <!-- task -->
-            <div class="task">
-              <div class="container-top-task">
-                <div class="title-task">
-                  <img src="../assets/Shape.png" alt="paper-icon">
-                  <p>Make the dinner</p>
-                </div>
-                <img src="../assets/icon-rocket.png" alt="rocket-icon-select" class="rocket-icon">
-                <select name="current-progress" id="" class="select-current">
-                  <option value="to-do">To Do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              <div class="container-bottom-task">
-                <p>Lorem ipsum dolor blabla let’s carpool toogethr tomorrow</p>
-                <div class="member-task">
-                  <img src="../assets/profile-small-icon.png" alt="icon-profile">
-                  <span>Emma</span>
-                </div>
-              </div>
-            </div>
-            <!-- task -->
-            <div class="task">
-              <div class="container-top-task">
-                <div class="title-task">
-                  <img src="../assets/Shape.png" alt="paper-icon">
-                  <p>Make the dinner</p>
-                </div>
-                <img src="../assets/icon-rocket.png" alt="rocket-icon-select" class="rocket-icon">
-                <select name="current-progress" id="" class="select-current">
-                  <option value="to-do">To Do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              <div class="container-bottom-task">
-                <p>Lorem ipsum dolor blabla let’s carpool toogethr tomorrow</p>
-                <div class="member-task">
-                  <img src="../assets/profile-small-icon.png" alt="icon-profile">
-                  <span>Emma</span>
-                </div>
-              </div>
-            </div>
-            <!-- task -->
-            <div class="task">
-              <div class="container-top-task">
-                <div class="title-task">
-                  <img src="../assets/Shape.png" alt="paper-icon">
-                  <p>Make the dinner</p>
-                </div>
-                <img src="../assets/icon-rocket.png" alt="rocket-icon-select" class="rocket-icon">
-                <select name="current-progress" id="" class="select-current">
-                  <option value="to-do">To Do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              <div class="container-bottom-task">
-                <p>Lorem ipsum dolor blabla let’s carpool toogethr tomorrow</p>
-                <div class="member-task">
-                  <img src="../assets/profile-small-icon.png" alt="icon-profile">
-                  <span>Emma</span>
-                </div>
-              </div>
-            </div>
-            <!-- task -->
-            <div class="task">
-              <div class="container-top-task">
-                <div class="title-task">
-                  <img src="../assets/Shape.png" alt="paper-icon">
-                  <p>Make the dinner</p>
-                </div>
-                <img src="../assets/icon-rocket.png" alt="rocket-icon-select" class="rocket-icon">
-                <select name="current-progress" id="" class="select-current">
-                  <option value="to-do">To Do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              <div class="container-bottom-task">
-                <p>Lorem ipsum dolor blabla let’s carpool toogethr tomorrow</p>
-                <div class="member-task">
-                  <img src="../assets/profile-small-icon.png" alt="icon-profile">
-                  <span>Emma</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
         <div class="progress-label-task">
           Doing
           <div class="container-tasks-list doing">
-            <!-- task -->
-            <div class="task task-doing">
-              <div class="container-top-task">
-                <div class="title-task">
-                  <img src="../assets/Shape.png" alt="paper-icon">
-                  <p>Make the dinner</p>
-                </div>
-                <img src="../assets/icon-rocket.png" alt="rocket-icon-select" class="rocket-icon">
-                <select name="current-progress" id="" class="select-current">
-                  <option value="to-do">To Do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              <div class="container-bottom-task">
-                <p>Lorem ipsum dolor blabla let’s carpool toogethr tomorrow</p>
-                <div class="member-task">
-                  <img src="../assets/profile-small-icon.png" alt="icon-profile">
-                  <span>Emma</span>
-                </div>
-              </div>
-            </div>
-            <!-- task -->
-            <div class="task task-doing">
-              <div class="container-top-task">
-                <div class="title-task">
-                  <img src="../assets/Shape.png" alt="paper-icon">
-                  <p>Make the dinner</p>
-                </div>
-                <img src="../assets/icon-rocket.png" alt="rocket-icon-select" class="rocket-icon">
-                <select name="current-progress" id="" class="select-current">
-                  <option value="to-do">To Do</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              <div class="container-bottom-task">
-                <p>Lorem ipsum dolor blabla let’s carpool toogethr tomorrow</p>
-                <div class="member-task">
-                  <img src="../assets/profile-small-icon.png" alt="icon-profile">
-                  <span>Emma</span>
-                </div>
-              </div>
-            </div>
             <!-- task -->
             <div class="task task-doing">
               <div class="container-top-task">
@@ -313,6 +181,25 @@
         <img src="../assets/check-icon.png" alt="check-icon-modal">
         Save
       </button>
+    </section>
+
+    <section class="modal-invite-people" id="modal-invite-people">
+      <header class="header-modal-invite-people">
+        <p>Invite People</p>
+        <button id="btn-close-modal-invite">
+          <img src="../assets/icon-close-lists.png" alt="icon-close-modal-img" class="icon-close-modal-invite-people">
+        </button>
+      </header>
+        <div class="container-inputs">
+          <label>Email</label>
+          <input type="text" id="email-invite" placeholder="person@email.com">
+          <label>Nome</label>
+          <input type="text" id="name-invite" placeholder="lorem ipsum">
+        </div>
+        <button class="btn-add-new-people" id="btn-invite-people-inside">
+          <img src="../assets/add-icon.png" alt="add-icon-modal">
+          Invite
+        </button>
     </section>
   </main>
 </body>
