@@ -17,10 +17,10 @@
         <img src="../assets/previous-icon.png" alt="icon-previous">
       </section>
       <section class="list-container">
-        <div class="header-list-container">
+        <header class="header-list-container">
           <h1>Lists</h1>
           <button id="btn-open-modal">+</button>
-        </div>
+        </header>
         <div class="count-lists">
           <p>Estudos</p>
           <span>Próximos tópicos a estudar na programação</span>
@@ -34,7 +34,7 @@
           <button class="btn-delete-list">
             <img src="../assets/delete-button-list.png" alt="delete-button">
           </button>
-          <button class="btn-add-to-do btn-list">+ Add Todo</button>
+          <button class="btn-add-to-do btn-list" id="btn-add-to-do">+ Add Todo</button>
           <button class="btn-invite-people btn-list">+ Invite People</button>
         </div>
       </section>
@@ -257,26 +257,59 @@
         </div>
       </section>
     </article>
+
     <article class="container-tasks">
       <img src="../assets/bg-tasks.png" alt="bg-no-tasks">
       <p id="start-new-list-text">Select a list or start a new one</p>
     </article>
+
     <section class="modal-add-list" id="modal-add-list">
-      <div class="header-modal-add-list">
+      <header class="header-modal-add-list">
         <p>List</p>
         <button id="btn-close-modal">
           <img src="../assets/icon-close-lists.png" alt="icon-close-modal-img">
         </button>
+      </header>
+      <div class="container-inputs">
+        <label>Title</label>
+        <input type="text" placeholder="Make the dinner" id="title-list">
+        <label>Member</label>
+        <input type="text" placeholder="James" id="member-list">
+        <label>Description</label>
+        <input type="text" placeholder="Buy mass and tomato in the market" id="description-list">
       </div>
+      <button id="btn-add-new-list">
+        <img src="../assets/check-icon.png" alt="check-icon-modal">
+        Save
+      </button>
+    </section>
+
+    <section class="modal-add-task" id="modal-add-task">
+      <header class="header-modal-add-task">
+        <p>To do</p>
+        <button id="btn-close-modal-task">
+          <img src="../assets/icon-close-lists.png" alt="icon-close-modal-img" class="icon-close-modal-add-task">
+        </button>
+      </header>
       <div class="container-inputs">
         <label>Title</label>
         <input type="text" placeholder="Make the dinner" id="title-task">
+        <label>Progress</label>
+        <select name="progress" id="progress-task">
+          <option value="to-do">To do</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
         <label>Member</label>
-        <input type="text" placeholder="James" id="member-task">
+        <select name="progress" id="member-task">
+          <option value="to-do">Yure</option>
+          <option value="doing">Joao</option>
+          <option value="done">Lucas</option>
+        </select>
         <label>Description</label>
         <input type="text" placeholder="Buy mass and tomato in the market" id="description-task">
       </div>
-      <button id="add-new-task">
+      <button id="add-new-task" class="btn-add-task">
         <img src="../assets/check-icon.png" alt="check-icon-modal">
         Save
       </button>

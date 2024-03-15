@@ -48,7 +48,7 @@ main.container-page-lists{
   flex-direction: column;
 }
 
-.list-container > div.header-list-container{
+.list-container > .header-list-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,13 +58,13 @@ main.container-page-lists{
   border-bottom: 1px solid #808080;
 }
 
-div.header-list-container > h1{
+.header-list-container > h1{
   font-size: 32px;
   font-family: 'PT Sans';
   color: #808080;
 }
 
-div.header-list-container > button{
+.header-list-container > button{
   width: 35px;
   height: 35px;
   border: 0;
@@ -120,7 +120,7 @@ div.header-list-container > button{
   cursor: pointer;
 }
 
-section.modal-add-list{
+section.modal-add-list, section.modal-add-task{
   display: none;
   flex-direction: column;
   width: 436px;
@@ -135,40 +135,66 @@ section.modal-add-list{
   border-radius: 8px;
 }
 
-.modal-add-list > div.header-modal-add-list{
+section.modal-add-task{
+  width: 360px;
+  height: 460px;
+  justify-content: inherit;
+  padding: 24px;
+  left: 67%;
+  top: 12%;
+}
+
+.modal-add-list > header.header-modal-add-list, header.header-modal-add-task{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.header-modal-add-list > p{
+.header-modal-add-list, .header-modal-add-task > p{
+  color: #000;
   font-size: 32px;
   font-family: 'Poppins';
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
-.header-modal-add-list > button{
+.header-modal-add-task > p{
+  font-size: 20px;
+}
+
+.header-modal-add-list > button, .header-modal-add-task > button{
   width: 28px;
   height: 28px;
   border: 0;
   background-color: transparent;
   cursor: pointer;
+  margin-top: -10px;
 }
 
-.modal-add-list > div.container-inputs{
+.header-modal-add-task > button, .icon-close-modal-add-task{
+  width: 17px;
+  height: 17px;
+}
+
+.modal-add-list > div.container-inputs, .modal-add-task > div.cotnainer-inputs{
   display: flex;
   flex-direction: column;
 }
 
 .container-inputs > label{
-  font-size: 24px;
+  color: #000;
+  font-size: 22px;
   font-weight: 400;
   margin: 0;
   font-family: 'Poppins';
 }
 
-.container-inputs > input{
+.modal-add-task > .container-inputs > label{
+  font-size: 15px;
+}
+
+.container-inputs > input, .modal-add-task > .container-inputs > select{
   width: 372px;
   height: 44px;
   padding: 0 12px;
@@ -180,7 +206,20 @@ section.modal-add-list{
   border-bottom: 1px solid #E2E4E5;
 }
 
-.modal-add-list > button{
+.modal-add-task > .container-inputs > input{
+  width: 290px;
+  font-size: 12px;
+}
+
+.modal-add-task > .container-inputs > select{
+  width: 290px;
+  margin-top: 0;
+  height: 27px;
+  font-size: 12px;
+  border-bottom: 1px solid #007AFF;
+}
+
+.modal-add-list > button, .modal-add-task > button{
   width: 120px;
   height: 48px;
   border: 0;
@@ -191,6 +230,12 @@ section.modal-add-list{
   color: var(--light-color);
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+.modal-add-task > button.btn-add-task{
+  width: 74px;
+  height: 30px;
+  font-size: 10px;
 }
 
 article.data-tasks {
@@ -361,4 +406,9 @@ div.task-doing{
 
 div.task-done{
   border-color: #5AC7AA;
+}
+
+.btn-add-task > img{
+  width: 10px;
+  height: 8px;
 }
