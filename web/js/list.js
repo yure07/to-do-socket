@@ -1,3 +1,5 @@
+const icon_previous_home = document.getElementById("icon-previous")
+
 const modal_add_list = document.getElementById("modal-add-list")
 const btn_open_modal = document.getElementById("btn-open-modal")
 const btn_close_modal = document.getElementById("btn-close-modal")
@@ -37,6 +39,10 @@ const tasks = [
 
   }
 ]
+
+icon_previous_home.addEventListener('click', () => {
+  window.location.href = '/web/pages/login.html'
+})
 
 btn_open_modal.addEventListener('click', () => {
   modal_add_list.style.display = 'flex'

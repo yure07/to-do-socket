@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Login</title>
-  <link rel="stylesheet" href="../styles/login.css">
-</head>
-<body>
-  <main class="main-container-login">
-    <article class="aside-presentation">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Login</title>
+    <link rel="stylesheet" href="../styles/login.css">
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"></script> -->
+  </head>
+  <body>
+    <main class="main-container-login">
+      <article class="aside-presentation">
       <img src="../assets/clock-image.png" alt="clock-login-image" class="clock-img">
       <section class="text-todo-presentation">
         <p>Everything you </p>
@@ -23,8 +25,12 @@
         <input type="text" placeholder="Email Address" id="input-email">
         <input type="password" placeholder="Password" id="input-password">
         <button class="btn-login" id="btn-login">Login</button>
+        <button class="btn-login signin-google" id="signin-google">
+          <img src="../assets/google-icon.webp" alt="icon-google">
+          Sign In with Google
+        </button>
         <p class="text-no-account">Do not have an account yet?</p>
-        <a href="#" class="text-no-account" id="text-no-account">Sign up</a>
+        <a href="/web/pages/register.html" class="text-no-account" id="text-no-account">Sign up</a>
       </section>
     </article>
     <section class="modal-login-success" id="modal-login-success">
@@ -48,4 +54,30 @@
   </main>
 </body>
 <script src="../js/login.js"></script>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js'
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBWNwp1shR9F4Y0fSSEvj3EhLNYfFHkZps",
+  authDomain: "to-do-socket.firebaseapp.com",
+  projectId: "to-do-socket",
+  storageBucket: "to-do-socket.appspot.com",
+  messagingSenderId: "414136715921",
+  appId: "1:414136715921:web:4b9c8b810e64dcdba14d30",
+  measurementId: "G-R26LZG5F89"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app)
+
+const signin_google = document.getElementById("signin-google")
+signin_google.addEventListener('click', async () => {
+  const provider = await new GoogleAuthProvider()
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result.user)
+  })
+})
+</script>
 </html>

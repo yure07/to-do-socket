@@ -2,9 +2,10 @@ const input_email = document.getElementById('input-email')
 const input_password = document.getElementById('input-password')
 const btn_login = document.getElementById('btn-login')
 
+/* const signin_google = document.getElementById("signin-google") */
+
 const modal_success = document.getElementById('modal-login-success')
 const modal_error = document.getElementById('modal-login-error')
-const navigate_to_signup = document.getElementById('text-no-account')
 
 btn_login.addEventListener('click', () => {
   if(!input_email.value || !input_password.value) {
@@ -22,6 +23,7 @@ btn_login.addEventListener('click', () => {
   }
 })
 
-navigate_to_signup.addEventListener('click', () => {
-  window.location.href = '/web/pages/register.html'
-})
+/* signin_google.addEventListener('click', async () => {
+  const provider = await new firebase.auth.GoogleAuthProvider()
+  return firebase.auth.signInWithPopup(firebaseConnection.auth, provider)
+}) */

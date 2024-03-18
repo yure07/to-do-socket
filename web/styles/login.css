@@ -63,7 +63,7 @@ h1.text-login{
   text-align: center;
   font-weight: 700;
   font-size: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .form-container > input{
@@ -81,7 +81,7 @@ h1.text-login{
 .form-container > .btn-login{
   width: 455px;
   height: 47px;
-  margin: 32px 0;
+  margin-top: 32px;
   border: 1px solid #E4D9D9;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -90,6 +90,24 @@ h1.text-login{
   font-weight: 700;
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+.form-container > .signin-google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  margin: 32px 0;
+  transform: translateX(72px);
+  column-gap: 12px;
+  font-size: 18px;
+  background-color: var(--light-color);
+  color: #000;
+}
+
+.form-container > .signin-google > img{
+  width: 30px;
+  height: 30px;
 }
 
 .form-container > .text-no-account{
