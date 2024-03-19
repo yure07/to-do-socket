@@ -23,14 +23,12 @@
         <input type="text" placeholder="Email Address" id="input-email">
         <input type="password" placeholder="Password" id="input-password">
         <button class="btn-login" id="btn-login">Login</button>
-        <button class="btn-login signin-google" id="signin-google">
-          <img src="../assets/google-icon.webp" alt="icon-google">
-          Sign In with Google
-        </button>
         <p class="text-no-account">Do not have an account yet?</p>
         <a href="/web/pages/register.html" class="text-no-account" id="text-no-account">Sign up</a>
       </section>
     </article>
+
+    <!-- modal success -->
     <section class="modal-login-success" id="modal-login-success">
       <div class="container-left">
         <img src="../assets/vetor-modal-login.png" alt="login-vetor" class="login-check-vetor"/>
@@ -41,6 +39,8 @@
         <img src="../assets//icon-close.png" alt="close-modal-icon" class="close-modal-login">
       </div>
     </section>
+
+    <!-- modal error -->
     <section class="modal-login-error" id="modal-login-error">
       <img src="../assets/vetor-modal-login-error.png" alt="login-vetor-error">
       <div class="container-text-modal-error">
@@ -51,10 +51,9 @@
     </section>
   </main>
 </body>
-<script src="../js/login.js"></script>
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js'
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js'
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBWNwp1shR9F4Y0fSSEvj3EhLNYfFHkZps",
@@ -69,13 +68,43 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
-const signin_google = document.getElementById("signin-google")
-signin_google.addEventListener('click', async () => {
-  const provider = await new GoogleAuthProvider()
-  signInWithPopup(auth, provider)
-  .then((result) => {
-    console.log(result.user)
-  })
+const input_email = document.getElementById('input-email')
+const input_password = document.getElementById('input-password')
+const btn_login = document.getElementById('btn-login')
+
+const modal_success = document.getElementById('modal-login-success')
+const modal_error = document.getElementById('modal-login-error')
+
+btn_login.addEventListener('click', async () => {
+  if(!input_email.value || !input_password.value) {
+    modal_error.style.display = 'flex'
+    setTimeout(() => {
+      modal_error.style.display = 'none'
+    }, 3000)
+  } 
+  else if(input_email.value && input_password.value){
+    await signInWithEmailAndPassword(auth, input_email.value, input_password.value)
+    .then((response => {
+      input_email.value = ''
+      input_password.value = ''
+      const idUser = response.user.auth.lastNotifiedUid
+      localStorage.setItem("@id_user", idUser)
+      modal_success.style.display = 'flex'
+      setTimeout(() => {
+        modal_success.style.display = 'none'
+        window.location.href = '/web/pages/list.html'
+      }, 3000)
+    }))
+    .catch((error) => {
+      console.log(error)
+      input_email.value = ''
+      input_password.value = ''
+      modal_error.style.display = 'flex'
+      setTimeout(() => {
+        modal_error.style.display = 'none'
+      }, 3000)
+    })
+  }
 })
 </script>
 </html>

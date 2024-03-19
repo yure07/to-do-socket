@@ -8,6 +8,17 @@
   font-size: 32px;
 }
 
+p.text-alternative-create-account{
+  text-align: center;
+  font-weight: 600;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+
+.form-container > button.signin-google{
+  margin-top: 0px;
+}
+
 section.modal-register-success{
   display: none;
   flex-direction: row;

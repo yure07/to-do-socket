@@ -28,6 +28,11 @@
         <input type="text" placeholder="Email Address" id="input-email">
         <input type="password" placeholder="Password" id="input-password">
         <button class="btn-login" id="btn-register">Create Account</button>
+        <p class="text-alternative-create-account">Or</p>
+        <button class="btn-login signin-google" id="signin-google">
+          <img src="../assets/google-icon.webp" alt="icon-google">
+          Sign In with Google
+        </button>
         <p class="text-no-account">Already have an account?</p>
         <a href="/web/pages/login.html" class="text-no-account" id="text-no-account">Log in</a>
       </section>
@@ -100,6 +105,8 @@ const modal_error_password = document.getElementById('modal-register-error-passw
 const btn_register = document.getElementById('btn-register')
 const btn_user_exists = document.getElementById('btn-close-modal-user-exists')
 
+const signin_google = document.getElementById("signin-google")
+
 const regex_password_nums = /[0-9]/g
 const regex_password_letters = /[a-zA-Z]/g
 
@@ -120,6 +127,14 @@ btn_register.addEventListener('click', async () => {
     await createUserWithEmailAndPassword(auth, input_email.value, input_password.value)
     .then((response) => console.log(response))
   }
+})
+
+signin_google.addEventListener('click', async () => {
+  const provider = await new GoogleAuthProvider()
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result.user)
+  })
 })
 
 btn_user_exists.addEventListener('click', () => {
