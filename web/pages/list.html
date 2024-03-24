@@ -11,7 +11,7 @@
     <aside class="sidebar-container">
       <section class="menu-sidebar">
         <div class="container-top-menu-sidebar">
-          <img src="../assets/user-icon.png" alt="icon-user">
+          <img src="../assets/user-icon.png" alt="icon-user" class="img-profile-user" id="img-profile-user">
           <img src="../assets/settings-icon.png" alt="icon-settings">
         </div>
         <img src="../assets/previous-icon.png" alt="icon-previous" id="icon-previous">
@@ -41,7 +41,7 @@
       <section class="labels-tasks">
         <div class="progress-label-task">
           To Do
-          <div class="container-tasks-list to-do">
+          <div class="container-tasks-list to-do" id="tasks-to-do">
             <!-- task -->
             <div class="task">
               <div class="container-top-task">
@@ -69,7 +69,7 @@
 
         <div class="progress-label-task">
           Doing
-          <div class="container-tasks-list doing">
+          <div class="container-tasks-list doing" id="tasks-doing">
             <!-- task -->
             <div class="task task-doing">
               <div class="container-top-task">
@@ -164,15 +164,15 @@
         <input type="text" placeholder="Make the dinner" id="title-task">
         <label>Progress</label>
         <select name="progress" id="progress-task">
-          <option value="to-do">To do</option>
-          <option value="doing">Doing</option>
-          <option value="done">Done</option>
+          <option value="To do">To do</option>
+          <option value="Doing">Doing</option>
+          <option value="Done">Done</option>
         </select>
         <label>Member</label>
         <select name="progress" id="member-task">
-          <option value="to-do">Yure</option>
-          <option value="doing">Joao</option>
-          <option value="done">Lucas</option>
+          <option value="Yure">Yure</option>
+          <option value="Joao">Joao</option>
+          <option value="Lucas">Lucas</option>
         </select>
         <label>Description</label>
         <input type="text" placeholder="Buy mass and tomato in the market" id="description-task">
@@ -204,4 +204,134 @@
   </main>
 </body>
 <script src="../js/list.js"></script>
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js'
+  import { getFirestore, collection, addDoc, getDocs } from 'https://cdnjs.cloudflare.com/ajax/libs/firebase/10.9.0/firebase-firestore.min.js'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBWNwp1shR9F4Y0fSSEvj3EhLNYfFHkZps",
+  authDomain: "to-do-socket.firebaseapp.com",
+  projectId: "to-do-socket",
+  storageBucket: "to-do-socket.appspot.com",
+  messagingSenderId: "414136715921",
+  appId: "1:414136715921:web:4b9c8b810e64dcdba14d30",
+  measurementId: "G-R26LZG5F89"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app)
+
+const title_task = document.getElementById("title-task")
+const member_task = document.getElementById("member-task")
+const progress_task = document.getElementById("progress-task")
+const description_task = document.getElementById("description-task")
+
+const container_task_to_do = document.getElementById("tasks-to-do")
+
+document.getElementById("add-new-task").addEventListener('click', async () => {
+  try {
+    const docRef = await addDoc(collection(db, "task"), {
+      title: title_task.value,
+      progress: progress_task.value,
+      member: member_task.value,
+      description: description_task.value
+    })
+    console.log('id do doc: ', docRef.id)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+document.getElementById("btn-add-new-list").addEventListener('click', async () => {
+  try {
+    const docRef = await addDoc(collection(db, "list2"), {
+      title: "Treino",
+      member: "yure",
+      description: "Nova dieta"
+    })
+    console.log('id do doc: ', docRef.id)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+const tasks_to_do = document.getElementById("tasks-to-do")
+const tasks_doing = document.getElementById("tasks-doing")
+
+const loadData = async () => {
+  const querySnapshot = await getDocs(collection(db, "task"));
+  querySnapshot.forEach((doc) => {
+    console.log(doc.data())  
+    
+    const task = document.createElement('div')
+    if(doc.data().progress === 'Doing'){
+      task.classList = 'task task-doing'
+    }
+    else{
+      task.classList = 'task'
+    }
+
+    const container_top_task = document.createElement('div')
+    container_top_task.classList = 'container-top-task'
+
+    const div_title_task = document.createElement('div')
+    div_title_task.classList = 'title-task'
+
+    const img_paper_icon = document.createElement('img')
+    img_paper_icon.src = '../assets/Shape.png'
+
+    const title_task_content = document.createElement('p')
+    title_task_content.innerHTML = doc.data().title
+
+    const rocket_img_select = document.createElement('img')
+    rocket_img_select.src = '../assets/icon-rocket.png'
+    rocket_img_select.classList = 'rocket-icon'
+
+    const select_progress_task = document.createElement('select')
+    select_progress_task.classList = 'select-current'
+
+    const options = ['To Do', 'Doing', 'Done']
+    options.forEach((optionText) => {
+      const option = document.createElement('option')
+      option.text = optionText
+      option.value = optionText
+      select_progress_task.add(option)
+    })
+
+    const container_bottom_task = document.createElement('div')
+    container_bottom_task.classList = 'container-bottom-task'
+
+    const description_task = document.createElement('p')
+    description_task.innerHTML = doc.data().description
+
+    const div_member_task = document.createElement('div')
+    div_member_task.classList = 'member-task'
+
+    const img_profile_icon = document.createElement('img')
+    img_profile_icon.src = '../assets/profile-small-icon.png'
+    
+    const member_task = document.createElement('span')
+    member_task.innerHTML = doc.data().member
+
+    div_member_task.appendChild(img_profile_icon)
+    div_member_task.appendChild(member_task)
+    container_bottom_task.appendChild(description_task)
+    container_bottom_task.appendChild(div_member_task)
+    div_title_task.appendChild(img_paper_icon)
+    div_title_task.appendChild(title_task_content)
+    container_top_task.appendChild(div_title_task)
+    container_top_task.appendChild(rocket_img_select)
+    container_top_task.appendChild(select_progress_task)
+    task.appendChild(container_top_task)
+    task.appendChild(container_bottom_task)
+
+    if(doc.data().progress === 'To do'){
+      tasks_to_do.appendChild(task)
+    }
+    else if(doc.data().progress === 'Doing'){
+      tasks_doing.appendChild(task)
+    }
+  });
+}
+window.onload = loadData()
+</script>
 </html>

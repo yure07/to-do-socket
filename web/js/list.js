@@ -1,6 +1,8 @@
+const img_profile_user = document.getElementById("img-profile-user")
 const icon_previous_home = document.getElementById("icon-previous")
 
 const modal_add_list = document.getElementById("modal-add-list")
+
 const btn_open_modal = document.getElementById("btn-open-modal")
 const btn_close_modal = document.getElementById("btn-close-modal")
 const btn_save_list = document.getElementById("btn-add-new-list")
@@ -10,13 +12,9 @@ const title_list = document.getElementById("title-list")
 const member_list = document.getElementById("member-list")
 const description_list = document.getElementById("description-list")
 
-const title_task = document.getElementById("title_task")
-const member_task = document.getElementById("member_task")
-const description_task = document.getElementById("description_task")
-
 const modal_add_task = document.getElementById("modal-add-task")
 const btn_add_to_do = document.getElementById("btn-add-to-do")
-const btn_add_new_task = document.getElementById("add-new-task")
+
 const btn_close_modal_task = document.getElementById("btn-close-modal-task")
 
 const modal_invite_people = document.getElementById("modal-invite-people")
@@ -74,15 +72,16 @@ btn_close_modal_task.addEventListener('click', () => {
   modal_add_task.style.display = 'none'
 })
 
+/*
 btn_add_new_task.addEventListener('click', () => {
-  /* if(!title_task.value || !member_task.value || !description_task.value) return
+  if(!title_task.value || !member_task.value || !description_task.value) return
   const new_task = {
     title: title_task.value,
     member: member_task.value,
     description: description_task
-  } */
+  } 
   modal_add_task.style.display = 'none'
-})
+})*/
 
 btn_invite_people_inside.addEventListener('click', () => {
   //if(!email_invite.value || !name_invite.value) return
@@ -103,6 +102,8 @@ const defineValues = () => {
   lists.map((list) => {
     title_list.innerHTML = list.title
   })
+  const urlPhoto = localStorage.getItem('@urlImg_user')
+  img_profile_user.src = urlPhoto
 }
 
 window.onload = defineValues()

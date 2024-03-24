@@ -43,6 +43,10 @@ main.container-page-lists{
   cursor: pointer;
 }
 
+.container-top-menu-sidebar > img.img-profile-user{
+  border-radius: 50%;
+}
+
 .menu-sidebar > .list-container{
   display: flex;
   flex-direction: column;

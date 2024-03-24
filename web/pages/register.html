@@ -152,7 +152,9 @@ signin_google.addEventListener('click', async () => {
   const provider = await new GoogleAuthProvider()
   signInWithPopup(auth, provider)
   .then((response) => {
+    const photoUser = response.user.reloadUserInfo.photoUrl
     const idUser = response.user.auth.lastNotifiedUid
+    localStorage.setItem("@urlImg_user", photoUser)
     localStorage.setItem("@id_user", idUser)
     window.location.href = '/web/pages/list.html'
   })
