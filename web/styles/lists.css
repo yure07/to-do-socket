@@ -86,9 +86,9 @@ main.container-page-lists{
   row-gap: 4px;
   height: 60px;
   padding: 12px;
-  background-color: #8080804D;
-  border-right: 3px solid #5AC7AA;
+  background-color: #fff;
   font-family: 'Inter';
+  cursor: pointer;
 }
 
 .count-lists > p{

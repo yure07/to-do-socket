@@ -1,8 +1,6 @@
 const img_profile_user = document.getElementById("img-profile-user")
 const icon_previous_home = document.getElementById("icon-previous")
 
-const modal_add_list = document.getElementById("modal-add-list")
-
 const modal_add_task = document.getElementById("modal-add-task")
 const btn_add_to_do = document.getElementById("btn-add-to-do")
 
